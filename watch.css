@@ -1,135 +1,144 @@
-html, body, table, tbody, tr, td, .cell, form, input {
-	position: relative;
-	margin: 0;
-	padding: 0;
-	border-spacing: 0;
+html,
+body,
+table,
+tbody,
+tr,
+td,
+.cell,
+form,
+input {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
     border-collapse: separate;
-	height: 100%;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    height: 100%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
 }
-
-body{
-	height: 100vh;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: #000021;
+body {
+    height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #000021;
 }
-
 .fixed-nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  width: 100%;
-  height: 50px;
-  background-color: white;
-  overflow: hidden;
-  text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    overflow: hidden;
+    text-align: center;
 }
-
 .fixed-nav-bar-form {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000;
-  width: 100%;
-  height: 50px;
-  overflow: hidden;
-  text-align: right;
-  background: white;
-  visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    text-align: right;
+    background: white;
+    visibility: hidden;
 }
-
 .fixed-nav-bar-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  width: 100%;
-  height: 50px;
-  background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
+    background-color: white;
 }
-
 td {
-	vertical-align: middle;
+    vertical-align: middle;
 }
-
-.cell { 
-	width: 20vw;
-	min-width: 220px;
-	overflow: hidden;
+.cell {
+    width: 20vw;
+    min-width: 220px;
+    overflow: hidden;
 }
-
 .hour {
-	width: 100%;
-	height: 4%;
-	position: relative;
-	overflow: hidden;
+    width: 100%;
+    height: 4%;
+    position: relative;
+    overflow: hidden;
 }
-
-.hr8, .hr9, .hr10, .hr11, .hr12, .hr13, .hr14, .hr15, .hr16 {
-	color: #000039;
-	background-color: #F8F69F;
+.hr8,
+.hr9,
+.hr10,
+.hr11,
+.hr12,
+.hr13,
+.hr14,
+.hr15,
+.hr16 {
+    color: #000039;
+    background-color: #F8F69F;
 }
-
-.hr7, .hr17 {
-	color: #000039;
-	background-color: #BAB986;
+.hr7,
+.hr17 {
+    color: #000039;
+    background-color: #BAB986;
 }
-
-.hr6, .hr18 {
-	color: #F8F69F;
-	background-color: #7C7B6C;
+.hr6,
+.hr18 {
+    color: #F8F69F;
+    background-color: #7C7B6C;
 }
-
-.hr5, .hr19 {
-	color: #F8F69F;
-	background-color: #3E3E53;
+.hr5,
+.hr19 {
+    color: #F8F69F;
+    background-color: #3E3E53;
 }
-
-.hr0, .hr1, .hr2, .hr3, .hr4, .hr20, .hr21, .hr22, .hr23 {
-	color: #F8F69F;
-	background-color: #000039;
+.hr0,
+.hr1,
+.hr2,
+.hr3,
+.hr4,
+.hr20,
+.hr21,
+.hr22,
+.hr23 {
+    color: #F8F69F;
+    background-color: #000039;
 }
-
 p {
-	line-height: 1;
-	position: relative;
-	height:100%;
-	white-space: nowrap;
+    line-height: 1;
+    position: relative;
+    height: 100%;
+    white-space: nowrap;
 }
-
 .alignleft {
-  float: left;
-  width: 25%;
-  text-align: left;
+    float: left;
+    width: 25%;
+    text-align: left;
 }
-
 .aligncenter {
-  float: left;
-  width: 50%;
-  text-align: center;
+    float: left;
+    width: 50%;
+    text-align: center;
 }
-
 .alignright {
- float: left;
- width: 25%;
- text-align: right;
-}​
-
-form {
-	height: 100%;
-	float: right;
+    float: left;
+    width: 25%;
+    text-align: right;
 }
-
+​ form {
+    height: 100%;
+    float: right;
+}
 input {
-	background-color: transparent;
-	height: 50px;
-	border: none;
-	font-size: 15px;
-	padding-right: 10px;
+    background-color: transparent;
+    height: 50px;
+    border: none;
+    font-size: 15px;
+    padding-right: 10px;
 }
