@@ -18,6 +18,7 @@ body {
     height: 100vh;
     padding-top: 50px;
     background-color: #000000;
+    overflow-y: hidden;
 }
 .fixed-nav-bar {
     position: fixed;
@@ -59,6 +60,7 @@ td {
     height: 4%;
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 .hr8, .hr9, .hr10, .hr11, .hr12, .hr13, .hr14, .hr15, .hr16 {
     color: #000000;
@@ -88,22 +90,25 @@ p {
 }
 .alignleft {
     float: left;
-    width: 25%;
+    width: 15%;
     text-align: left;
 }
 .aligncenter {
     float: left;
-    width: 50%;
+    width: 70%;
     text-align: center;
 }
 .alignright {
-    float: left;
-    width: 25%;
+    float: right;
+    width: 15%;
     text-align: right;
+    direction: rtl;
 }
 ​ form {
     height: 100%;
     float: right;
+    max-width: 500px;
+    width:100%;
 }
 input {
     position: relative;

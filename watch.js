@@ -59,15 +59,17 @@ function hourwrapper(n, left, center, right) {
 
 function watchwrapper(cell, utcmin, loc, tz) {
     var tztext = '';
-    if (tz < 0) tztext += '+';
-    else if(tz > 0) tztext += '-';
+    if (Math.abs(tz) / 60 < 10) tztext += '0';
     tztext += Math.floor(Math.abs(tz) / 60) + ':';
     if (Math.abs(tz) % 60 < 10) tztext += '0';
     tztext += (Math.abs(tz) % 60);
+    if (tz < 0) tztext += '+';
+    else if(tz > 0) tztext += '-';
     var time = (utcmin - tz + 1440) % 1440;
     var hr = Math.floor(time / 60);
     var min = time % 60;
     var timetext = '';
+    if (hr < 10) timetext += '0';
     timetext += hr + flicker;
     if (min < 10) timetext += '0';
     timetext += min;
@@ -78,7 +80,7 @@ function watchwrapper(cell, utcmin, loc, tz) {
     if (loc == 'CURRENT') wapper += '<div class="hour hr' + starthour + '"><p class="alignleft"></p><p class="aligncenter"><i class="fa fa-location-arrow fa-fw" aria-hidden="true"></i></p><p class="alignright"></p></div>';
     else wapper += '<div class="hour hr' + starthour + '"><p class="alignleft" onclick="deleteWatch(\'' + loc + ':' + tz + '\')">&ensp;<i class="fa fa-fw fa-times-circle fa-lg" aria-hidden="true" style="visibility:' + visible + ';"></i></p><p class="aligncenter">' + loc + '</p><p class="alignright"></p></div>';
     for (var i = starthour; i < starthour + 24; i++) {
-        if (i % 24 == hr) wapper += hourwrapper('hour hr' + i % 24, '&ensp;' + timetext, convertIcon(i % 24), tztext + '&ensp;');
+        if (i % 24 == hr) wapper += '<div class="hour hr' + i % 24 + '"><p class="alignleft"><i class="fa fa-caret-right fa-fw" aria-hidden="true"></i></p><p class="aligncenter"'+((flicker==':')?'style="text-decoration: underline;"':'')+'>'+timetext+'</p><p class="alignright">'+'&ensp;'+tztext+'</p></div>';
         else wapper += hourwrapper('hour hr' + i % 24, 'fa-angle-right', convertIcon(i % 24), 'fa-angle-left');
     }
     return wapper;
@@ -87,6 +89,7 @@ function watchwrapper(cell, utcmin, loc, tz) {
 function watchize(cells) {
     var current = new Date();
     var utcmin = (current.getHours() * 60 + current.getMinutes() + current.getTimezoneOffset() + 1440) % 1440;
+    var cellwidth = (100 % cells.length==0)? cellwidth = Math.floor(100 / cells.length) + 'vw' : (Math.floor(100 / cells.length)+1) + 'vw';
     for (var i = 0; i < cells.length; i++) {
         var cell = cells[i];
         var loc = 'ERR';
@@ -103,7 +106,7 @@ function watchize(cells) {
                 tz = (+v[1]);
                 cell.innerHTML = watchwrapper(cell, utcmin, loc, tz, viewstatus);
             }
-            cell.style.width = Math.floor(100 / cells.length) + 'vw';
+            cell.style.width = cellwidth;
         }
 
     }
