@@ -80,7 +80,7 @@ function watchwrapper(cell, utcmin, loc, tz) {
     if (loc == 'CURRENT') wapper += '<div class="hour hr' + starthour + '"><p class="alignleft"></p><p class="aligncenter"><i class="fa fa-location-arrow fa-fw" aria-hidden="true"></i></p><p class="alignright"></p></div>';
     else wapper += '<div class="hour hr' + starthour + '"><p class="alignleft" onclick="deleteWatch(\'' + loc + ':' + tz + '\')">&ensp;<i class="fa fa-fw fa-times-circle fa-lg" aria-hidden="true" style="visibility:' + visible + ';"></i></p><p class="aligncenter">' + loc + '</p><p class="alignright"></p></div>';
     for (var i = starthour; i < starthour + 24; i++) {
-        if (i % 24 == hr) wapper += '<div class="hour hr' + i % 24 + '"><p class="alignleft"><i class="fa fa-caret-right fa-fw" aria-hidden="true"></i></p><p class="aligncenter"'+((flicker==':')?'style="text-decoration: underline;"':'')+'>'+timetext+'</p><p class="alignright">'+'&ensp;'+tztext+'</p></div>';
+        if (i % 24 == hr) wapper += '<div class="hour hr' + i % 24 + '"><p class="alignleft"><i class="fa fa-caret-right fa-fw" aria-hidden="true"></i></p><p class="aligncenter" style="font-weight:bold;'+((flicker==':')?'text-decoration: underline;':'')+'">'+timetext+'</p><p class="alignright">'+'&ensp;'+tztext+'</p></div>';
         else wapper += hourwrapper('hour hr' + i % 24, 'fa-angle-right', convertIcon(i % 24), 'fa-angle-left');
     }
     return wapper;
