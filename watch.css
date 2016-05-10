@@ -1,4 +1,4 @@
-html, body, table, tbody, tr, td, .cell, form, input {
+html, body, table, tbody, tr, td, .cell, form {
     position: relative;
     margin: 0;
     padding: 0;
@@ -7,11 +7,19 @@ html, body, table, tbody, tr, td, .cell, form, input {
     height: 100%;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
+    cursor: default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 body {
     height: 100vh;
     padding-top: 50px;
-    background-color: #000021;
+    background-color: #211100;
 }
 .fixed-nav-bar {
     position: fixed;
@@ -21,7 +29,7 @@ body {
     z-index: 9999;
     width: 100%;
     height: 50px;
-    background-color: #000021;
+    background-color: #211100;
     color: white;
     overflow: hidden;
     text-align: center;
@@ -36,7 +44,7 @@ body {
     height: 50px;
     overflow: hidden;
     text-align: right;
-    background-color: #000021;
+    background-color: #211100;
     color: white;
     visibility: hidden;
 }
@@ -100,10 +108,19 @@ p {
     float: right;
 }
 input {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 100%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
     color: white;
     background-color: transparent;
     height: 50px;
     border: none;
     font-size: 15px;
     padding-right: 10px;
+    outline:none;
 }
