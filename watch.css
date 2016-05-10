@@ -8,18 +8,16 @@ html, body, table, tbody, tr, td, .cell, form {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     cursor: default;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 body {
     height: 100vh;
     padding-top: 50px;
-    background-color: #211100;
+    background-color: #000000;
 }
 .fixed-nav-bar {
     position: fixed;
@@ -29,7 +27,7 @@ body {
     z-index: 9999;
     width: 100%;
     height: 50px;
-    background-color: #211100;
+    background-color: #000000;
     color: white;
     overflow: hidden;
     text-align: center;
@@ -44,7 +42,7 @@ body {
     height: 50px;
     overflow: hidden;
     text-align: right;
-    background-color: #211100;
+    background-color: #000000;
     color: white;
     visibility: hidden;
 }
@@ -63,24 +61,24 @@ td {
     overflow: hidden;
 }
 .hr8, .hr9, .hr10, .hr11, .hr12, .hr13, .hr14, .hr15, .hr16 {
-    color: #1C0A14;
-    background-color: #FAD18E;
+    color: #000000;
+    background-color: #FFFFFF;
 }
 .hr7, .hr17 {
-    color: #1C0A14;
-    background-color: #C49976;
+    color: #000000;
+    background-color: #BFBFBF;
 }
 .hr6, .hr18 {
-    color: #FAD18E;
-    background-color: #7D5656;
+    color: #FFFFFF;
+    background-color: #808080;
 }
 .hr5, .hr19 {
-    color: #FAD18E;
-    background-color: #452531;
+    color: #FFFFFF;
+    background-color: #404040;
 }
 .hr0, .hr1, .hr2, .hr3, .hr4, .hr20, .hr21, .hr22, .hr23 {
-    color: #FAD18E;
-    background-color: #1C0A14;
+    color: #FFFFFF;
+    background-color: #000000;
 }
 p {
     line-height: 1;
