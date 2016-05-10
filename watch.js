@@ -1,4 +1,5 @@
 var viewstatus = "SHOW";
+var flicker = ":";
 
 $(document).ready(function() {
     if (localStorage.getItem("in.liuyid.watch.loctz") == null) {
@@ -25,13 +26,13 @@ $(document).ready(function() {
     localStorage.setItem("in.liuyid.watch.loctz", updateloctz.join(';'));
     if (-1 != window.location.href.indexOf("?")) {
         var newwatch = addWatch(window.location.href);
-        if (newwatch != null) updateloctz.push(newwatch);
+        if (newwatch != null && !updateloctz.includes(newwatch)) updateloctz.push(newwatch);
         localStorage.setItem("in.liuyid.watch.loctz", updateloctz.join(';'));
         window.location = window.location.href.substring(0, window.location.href.indexOf("?"));
         return;
     }
     watchize($('.cell'));
-    //setInterval(function(){watchize($('.cell'));},1000);
+    setInterval(function(){watchize($('.cell'));},1000);
 });
 
 function convertIcon(i) {
@@ -59,6 +60,7 @@ function hourwrapper(n, left, center, right) {
 function watchwrapper(cell, utcmin, loc, tz) {
     var tztext = '';
     if (tz < 0) tztext += '+';
+    else if(tz > 0) tztext += '-';
     tztext += Math.floor(Math.abs(tz) / 60) + ':';
     if (Math.abs(tz) % 60 < 10) tztext += '0';
     tztext += (Math.abs(tz) % 60);
@@ -66,11 +68,9 @@ function watchwrapper(cell, utcmin, loc, tz) {
     var hr = Math.floor(time / 60);
     var min = time % 60;
     var timetext = '';
-    timetext += hr % 12 + ':';
+    timetext += hr + flicker;
     if (min < 10) timetext += '0';
-    timetext += min + ' ';
-    if (hr >= 0 && hr < 12) timetext += 'AM';
-    else timetext += 'PM';
+    timetext += min;
 
     var starthour = (hr - 2 + 24) % 24;
     var wapper = '';
@@ -103,16 +103,16 @@ function watchize(cells) {
                 tz = (+v[1]);
                 cell.innerHTML = watchwrapper(cell, utcmin, loc, tz, viewstatus);
             }
-            cell.style.width = (Math.floor(100 / cells.length) + 1) + 'vw';
+            cell.style.width = Math.floor(100 / cells.length) + 'vw';
         }
 
     }
-
+    flicker=(flicker==":")?" ":":";
 };
 
 function showtimes(param) {
     $('.fa-times-circle').css('visibility', 'visible');
-    param.innerHTML = "&ensp;Done";
+    param.innerHTML = "&ensp;Done&ensp;<i class=\"fa fa-fw fa-times-circle fa-lg\" aria-hidden=\"true\" onclick=\"cleanAll()\"></i>";
     param.setAttribute('onclick', 'hidetimes(this)');
     viewstatus = "EDIT";
 }
@@ -145,7 +145,7 @@ function addWatch(url) {
                     var min = +timezone[1];
                     if (hr <= 12 && hr >= -12 && min >= 0 && min < 60) {
                         var n = -1 * Math.sign(hr) * (Math.abs(hr) * 60 + min);
-                        return loc[1].toUpperCase() + ':' + n;
+                        return loc[1].split('+').join(' ').toUpperCase() + ':' + n;
                     }
                 }
             }
@@ -161,5 +161,10 @@ function deleteWatch(param) {
         if (param != loctz[i]) updateloctz.push(loctz[i]);
     }
     localStorage.setItem("in.liuyid.watch.loctz", updateloctz.join(';'));
+    window.location = window.location.href;
+}
+
+function cleanAll(){
+    localStorage.removeItem("in.liuyid.watch.loctz");
     window.location = window.location.href;
 }
